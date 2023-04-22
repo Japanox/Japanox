@@ -1,0 +1,32 @@
+<!-- BEGIN torrent list -->
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">{L_DARKFOX_TORRENTS}</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>{L_DARKFOX_TORRENTS_NAME}</th>
+                    <th>{L_DARKFOX_TORRENTS_SIZE}</th>
+                    <th>{L_DARKFOX_TORRENTS_SEEDERS}</th>
+                    <th>{L_DARKFOX_TORRENTS_LEECHERS}</th>
+                    <th>{L_DARKFOX_TORRENTS_DOWNLOADS}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- BEGIN torrents -->
+                {DARKFOX_TORRENTS}
+                <tr>
+                    <td><a href="{DARKFOX_TORRENTS_URL}">{DARKFOX_TORRENTS_NAME}</a></td>
+                    <td>{DARKFOX_TORRENTS_SIZE}</td>
+                    <td>{DARKFOX_TORRENTS_SEEDERS}</td>
+                    <td>{DARKFOX_TORRENTS_LEECHERS}</td>
+                    <td>{DARKFOX_TORRENTS_DOWNLOADS}</td>
+                </tr>
+                <!-- END torrents -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- END torrent list -->

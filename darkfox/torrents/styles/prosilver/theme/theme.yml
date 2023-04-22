@@ -1,0 +1,45 @@
+name: we_clearblue
+parents: prosilver
+copyright:
+  title:  torrents
+  website: https://jeveuxsortir.com/forumx
+  copyright_holder: Nome do titular de direitos autorais
+  license: GPLv2
+  license_link: https://www.gnu.org/licenses/gpl-2.0.html
+images:
+  - thumbnail.png
+  - logo.png
+templates:
+  - event/overall_footer_after.html
+  - event/ucp_prefs_notification_types_modify_body.html
+  - event/ucp_prefs_notification_types_modify_options.html
+stylesheets:
+  - src/css/we_clearblue.css
+settings:
+  - name: enable_torrents
+    type: bool
+    default: true
+    lang_key: ENABLE_TORRENTS
+    display: A habilitação desta opção permite o envio de torrents.
+    cat: notifications
+    phpbb_version: >=3.2.0
+    validate: 'boolval'
+    persist: true
+    confidential: false
+    access: acp
+    tab: tab3
+    order: 10
+install:
+  - event: 'core.user_setup'
+    listener: 'Darkfox\Torrents\Listener\UserSetupListener::setup'
+  - event: 'core.notification_types_modify_sql_ary'
+    listener: 'Darkfox\Torrents\Listener\NotificationTypeListener::modify_sql_ary'
+  - event: 'core.notification_methods'
+    listener: 'Darkfox\Torrents\Listener\NotificationMethodListener::notification_methods'
+    priority: 1
+  - event: 'core.ucp_prefs_viewprofile_data'
+    listener: 'Darkfox\Torrents\Listener\UCPProfileFieldsListener::viewprofile_data'
+    priority: 1
+  - event: 'core.ucp_prefs_modify_submit_end'
+    listener: 'Darkfox\Torrents\Listener\UCPProfileFieldsListener::modify_submit_end'
+    priority: 1
